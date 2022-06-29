@@ -1,5 +1,5 @@
-let courseList = JSON.parse(localStorage.getItem("courseList"))
-  ? JSON.parse(localStorage.getItem("courseList"))
+let tracks = JSON.parse(localStorage.getItem("tracks"))
+  ? JSON.parse(localStorage.getItem("tracks"))
   : [
       {
         image:
@@ -107,68 +107,68 @@ let courseList = JSON.parse(localStorage.getItem("courseList"))
 
 let asc = true;
 
-const ListContainer = document.querySelector("#golf");
+const tracksContainer = document.querySelector("#tableItems");
 
-const showCourses = (courseList) => {
-  ListContainer.innerHTML = "";
-  courseList.forEach((course) => {
-    ListContainer.innerHTML += `
-        <div class="card m-3" style="width: 18rem;">
-    <img src="${course.image}" class="img-fluid" />
-    <div class="card-body">
-     <p>${course.title}</p>
-     <p>${course.type}</p>
-     <p><i class="fa-solid fa-location-dot"></i>${course.location}</p>
-     <p>${course.size}</p>
-   <p>${course.price}</p>
-    </div>
-  </div>
-        `;
+function showTrack(tracks) {
+  tracksContainer.innerHTML = "";
+  console.log(tracks);
+  tracks.forEach((track) => {
+    tracksContainer.innerHTML += `
+    
+      <tr>
+        <th scope="row">${track.id}</th>
+        <td>${track.image}</td>
+        <td>${track.title}</td>
+        <td>${track.type}</td>
+        <td>${track.location}</td>
+        <td>${track.size}</td>
+        <td>${track.price}</td>
+        <td><i class="fa-solid fa-pen-to-square p-3"></i><i class="fa-solid fa-trash-can p-3"></i></td> 
+      </tr>
+  
+       `;
   });
-};
-console.log(courseList);
-localStorage.setItem("golf", JSON.stringify(courseList));
-showCourses(courseList);
-//add task function
-//function addTask() {
-//get the value
-//const task = document.querySelector("#addTodo").value;
+}
 
-//create the object from the value
-//const todo = {
-//  title: task,
-// id: todos.length + 1,
-//};
+showTrack(tracks);
 
-//add the object to the array
-// todos.push(todo);
-//localStorage.setItem("todos", JSON.stringify(todos));
-//showTodos(todos);
-// document.querySelector("#addTodo").value = "";
-//}
+//add function
+function addCourses() {
+  const newCourse = {
+    image: document.querySelector("#image").value,
+    title: document.querySelector("#title").value,
+    type: document.querySelector("#type").value,
+    size: document.querySelector("#size").value,
+    price: document.querySelector("#price").value,
+    id: tracks.length + 1,
+  };
+  tracks.push(newCourse);
+ localStorage.setItem("tracks", JSON.stringify(tracks));
+  showTrack(tracks);
+    //document.querySelector("#addTodo").value = "";
+}
 
-//delete task function
-// function deleteTask(id) {
-//   todos = todos.filter((todo) => todo.id !== id);
+// //add task function
+// function addTask() {
+//   //get the value
+//   const task = document.querySelector("#addTodo").value;
+
+//   //create the object from the value
+//   const todo = {
+//     title: task,
+//     id: todos.length + 1,
+//   };
+
+//   //add the object to the array
+//   todos.push(todo);
 //   localStorage.setItem("todos", JSON.stringify(todos));
 //   showTodos(todos);
+//   document.querySelector("#addTodo").value = "";
 // }
 
-// //sort function
-// function sortName() {
-//   todos.sort((a, b) => {
-//     if (a.tiltetoLowerCase() < b.tiltetoLowerCase()) {
-//       return -1;
-//     }
-//     if (a.tiltetoLowerCase() > b.tiltetoLowerCase()) {
-//       return 1;
-//     }
-//     return 0;
-//   });
-
-//   if (!asc) todos.reverse();
-
-//   asc = !asc;
-
-//   showTodos(todos);
-// }
+// //delete task function
+// // function deleteTask(id) {
+// //   todos = todos.filter((todo) => todo.id !== id);
+// //   localStorage.setItem("todos", JSON.stringify(todos));
+// //   showTodos(todos);
+// // }
