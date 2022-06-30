@@ -131,13 +131,102 @@ console.log(courseList);
 localStorage.setItem("golf", JSON.stringify(courseList));
 showCourses(courseList);
 
-function filter(event) {
+//Filtersize
+function filtersize(event) {
   let FilterOption = event.target.value;
   if (FilterOption !== "all") {
     // console.log(FilterOption);
     document.querySelector("#golf").innerHTML = "";
     let specificView = courseList.filter(
       (course) => course.size === FilterOption
+    );
+    specificView.forEach((course) => {
+      document.querySelector("#golf").innerHTML += `
+        <div class="card m-3" style="width: 18rem;">
+    <img src="${course.image}" class="img-fluid" />
+    <div class="card-body">
+     <p>${course.title}</p>
+     <p>${course.type}</p>
+     <p><i class="fa-solid fa-location-dot"></i>${course.location}</p>
+     <p>${course.size}</p>
+   <p>${course.price}</p>
+    </div>
+  </div>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+//Filterlocation
+function filterlocation(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#golf").innerHTML = "";
+    let specificView = courseList.filter(
+      (course) => course.location === FilterOption
+    );
+    specificView.forEach((course) => {
+      document.querySelector("#golf").innerHTML += `
+        <div class="card m-3" style="width: 18rem;">
+    <img src="${course.image}" class="img-fluid" />
+    <div class="card-body">
+     <p>${course.title}</p>
+     <p>${course.type}</p>
+     <p><i class="fa-solid fa-location-dot"></i>${course.location}</p>
+     <p>${course.size}</p>
+   <p>${course.price}</p>
+    </div>
+  </div>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+
+//Filtertype
+function filtertype(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#golf").innerHTML = "";
+    let specificView = courseList.filter(
+      (course) => course.type === FilterOption
+    );
+    specificView.forEach((course) => {
+      document.querySelector("#golf").innerHTML += `
+        <div class="card m-3" style="width: 18rem;">
+    <img src="${course.image}" class="img-fluid" />
+    <div class="card-body">
+     <p>${course.title}</p>
+     <p>${course.type}</p>
+     <p><i class="fa-solid fa-location-dot"></i>${course.location}</p>
+     <p>${course.size}</p>
+   <p>${course.price}</p>
+    </div>
+  </div>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+//Filterprice
+function filterprice(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#golf").innerHTML = "";
+    let specificView = courseList.filter(
+      (course) => course.price === FilterOption
     );
     specificView.forEach((course) => {
       document.querySelector("#golf").innerHTML += `

@@ -88,3 +88,12 @@ footer {
 .img-fluid:hover {
   transform: scale(1.1);
 }
+
+a{
+ font-size: 3rem;
+ color: white;
+}
+
+a:hover{
+  color: white;
+}

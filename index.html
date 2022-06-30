@@ -19,9 +19,9 @@
   </head>
   <body>
     <section id="home">
-      <div class="container">
-        <a href="./admin.html">ADMIN PAGE</a>
-      </div>
+      
+        <a href="./admin.html"><i class="fa-brands fa-adn"></i></a>
+      
 
       <h1 class="landing-heading">Welcome To Golf Space</h1>
       <p class="landing-text">
@@ -40,10 +40,10 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown" onchange="typeSort(event)">
-                    <option value="all">Select option</option>
+                  <select class="dropdown" onchange="filtertype(event)">
+                    <option selected>Select option</option>
                     <option value="links">links</option>
-                    <option value="Parklands">Parkland</option>
+                    <option value="Parkland">Parkland</option>
                     <option value="Desert">Desert</option>
                     <option value="Championship">Championship</option>
                     <option value="Private">Private</option>
@@ -65,8 +65,8 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown">
-                    <option value="">Select option</option>
+                  <select class="dropdown" id="location" onchange="filterlocation(event)" >
+                    <option selected>Select option</option>
                     <option value="South Africa">South Africa</option>
                     <option value="United States">United States</option>
                     <option value="Northern Ireland">Northern Ireland</option>
@@ -88,9 +88,9 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown" id="size" onchange="filter(event)">
+                  <select class="dropdown" id="size" onchange="filtersize(event)">
                     <option selected>Select option</option>
-                    <option value=" 36 hectares">36 hectares</option>
+                    <option value="36 hectares">36 hectares</option>
                     <option value="40 hectares">40 hectares</option>
                     <option value="42 hectares">42 hectares</option>
                     <option value="49 hectares">49 hectares</option>
@@ -113,10 +113,18 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown" onchange="priceSort(event)">
-                    <option value="all">Select option</option>
-                    <option value="acs">Price Ascending</option>
-                    <option value="desc">Price Decending</option>
+                  <select class="dropdown" onchange="filterprice(event)">
+                    <option selected>Select option</option>
+                    <option value="$ 23.1 million">$ 23.1 million</option>
+                    <option value="$ 25.6 million">$ 25.6 million</option>
+                    <option value="$ 27.3 million">$ 27.3 million</option>
+                    <option value="$ 29 million">$ 29 million</option>
+                    <option value="$ 30 million">$ 30 million</option>
+                    <option value="$ 31.4 million">$ 31.4 million</option>
+                    <option value="$ 36.3 million">$ 36.3 million</option>
+                    <option value="$ 39 million">$ 39 million</option>
+                    <option value="$ 40 million">$ 40 million</option>
+                    <option value="$ 43.5 million">$ 43.5 million</option>
                   </select>
                 </td>
               </tr>
