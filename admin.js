@@ -1,5 +1,5 @@
-let tracks = JSON.parse(localStorage.getItem("tracks"))
-  ? JSON.parse(localStorage.getItem("tracks"))
+let courseList = JSON.parse(localStorage.getItem("courseList"))
+  ? JSON.parse(localStorage.getItem("courseList"))
   : [
       {
         image:
@@ -109,10 +109,10 @@ let asc = true;
 
 const tracksContainer = document.querySelector("#tableItems");
 
-function showTrack(tracks) {
+function showCourses(courseList) {
   tracksContainer.innerHTML = "";
-  console.log(tracks);
-  tracks.forEach((track) => {
+  console.log(courseList);
+  courseList.forEach((track) => {
     tracksContainer.innerHTML += `
     
       <tr>
@@ -123,14 +123,15 @@ function showTrack(tracks) {
         <td>${track.location}</td>
         <td>${track.size}</td>
         <td>${track.price}</td>
-        <td><i class="fa-solid fa-pen-to-square p-3"></i><i class="fa-solid fa-trash-can p-3"></i></td> 
+        <td><i class="fa-solid fa-pen-to-square p-3"></i>
+        <i onclick="deleteTask(${track.id})" class="fa-solid fa-trash-can p-3"></i></td> 
       </tr>
   
        `;
   });
 }
 
-showTrack(tracks);
+showCourses(courseList);
 
 //add function
 function addCourses() {
@@ -138,37 +139,20 @@ function addCourses() {
     image: document.querySelector("#image").value,
     title: document.querySelector("#title").value,
     type: document.querySelector("#type").value,
+    location: document.querySelector("#location").value,
     size: document.querySelector("#size").value,
     price: document.querySelector("#price").value,
-    id: tracks.length + 1,
+    id: courseList.length + 1,
   };
-  tracks.push(newCourse);
- localStorage.setItem("tracks", JSON.stringify(tracks));
-  showTrack(tracks);
-    //document.querySelector("#addTodo").value = "";
+  courseList.push(newCourse);
+  localStorage.setItem("courseList", JSON.stringify(courseList));
+  showCourses(courseList);
 }
+document.querySelector("#addNewItem").addEventListener("click", addCourses);
 
-// //add task function
-// function addTask() {
-//   //get the value
-//   const task = document.querySelector("#addTodo").value;
-
-//   //create the object from the value
-//   const todo = {
-//     title: task,
-//     id: todos.length + 1,
-//   };
-
-//   //add the object to the array
-//   todos.push(todo);
-//   localStorage.setItem("todos", JSON.stringify(todos));
-//   showTodos(todos);
-//   document.querySelector("#addTodo").value = "";
-// }
-
-// //delete task function
-// // function deleteTask(id) {
-// //   todos = todos.filter((todo) => todo.id !== id);
-// //   localStorage.setItem("todos", JSON.stringify(todos));
-// //   showTodos(todos);
-// // }
+//delete function
+function deleteTask(id) {
+  courseList = courseList.filter((track) => track.id !== id);
+  localStorage.setItem("courseList", JSON.stringify(courseList));
+  showCourses(courseList);
+}

@@ -129,30 +129,18 @@ const showCourses = (courseList) => {
 console.log(courseList);
 localStorage.setItem("golf", JSON.stringify(courseList));
 showCourses(courseList);
-//add task function
-//function addTask() {
-//get the value
-//const task = document.querySelector("#addTodo").value;
 
-//create the object from the value
-//const todo = {
-//  title: task,
-// id: todos.length + 1,
-//};
+const priceSort = (e) => {
+  const direction = e.target.value;
 
-//add the object to the array
-// todos.push(todo);
-//localStorage.setItem("todos", JSON.stringify(todos));
-//showTodos(todos);
-// document.querySelector("#addTodo").value = "";
-//}
+  const sorted = courseList.sort((a, b) => a.price - b.price);
 
-//delete task function
-// function deleteTask(id) {
-//   todos = todos.filter((todo) => todo.id !== id);
-//   localStorage.setItem("todos", JSON.stringify(todos));
-//   showTodos(todos);
-// }
+  if (direction === "asc") {
+    showCourses(sorted);
+  } else {
+    showCourses(sorted.reverse());
+  }
+};
 
 // //sort function
 // function sortName() {
