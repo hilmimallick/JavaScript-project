@@ -74,6 +74,7 @@
   width: 18rem;
   height: 15rem;
   border-radius: 5px;
+  transition: 0.2 linear;
 }
 
 footer {
@@ -82,4 +83,8 @@ footer {
   background-color: rgb(47, 137, 233);
   bottom: 0;
   text-align: center;
+}
+
+.img-fluid:hover {
+  transform: scale(1.1);
 }

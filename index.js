@@ -7,7 +7,7 @@ let courseList = JSON.parse(localStorage.getItem("courseList"))
         title: "Atlantic Beach Links",
         type: "links",
         location: "South Africa",
-        size: " 36 hectares",
+        size: "36 hectares",
         price: "$ 25.6 million",
         id: "1",
       },
@@ -126,37 +126,35 @@ const showCourses = (courseList) => {
         `;
   });
 };
+
 console.log(courseList);
 localStorage.setItem("golf", JSON.stringify(courseList));
 showCourses(courseList);
 
-const priceSort = (e) => {
-  const direction = e.target.value;
-
-  const sorted = courseList.sort((a, b) => a.price - b.price);
-
-  if (direction === "asc") {
-    showCourses(sorted);
+function filter(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#golf").innerHTML = "";
+    let specificView = courseList.filter(
+      (course) => course.size === FilterOption
+    );
+    specificView.forEach((course) => {
+      document.querySelector("#golf").innerHTML += `
+        <div class="card m-3" style="width: 18rem;">
+    <img src="${course.image}" class="img-fluid" />
+    <div class="card-body">
+     <p>${course.title}</p>
+     <p>${course.type}</p>
+     <p><i class="fa-solid fa-location-dot"></i>${course.location}</p>
+     <p>${course.size}</p>
+   <p>${course.price}</p>
+    </div>
+  </div>
+        `;
+      console.log(specificView);
+    });
   } else {
-    showCourses(sorted.reverse());
+    display();
   }
-};
-
-// //sort function
-// function sortName() {
-//   todos.sort((a, b) => {
-//     if (a.tiltetoLowerCase() < b.tiltetoLowerCase()) {
-//       return -1;
-//     }
-//     if (a.tiltetoLowerCase() > b.tiltetoLowerCase()) {
-//       return 1;
-//     }
-//     return 0;
-//   });
-
-//   if (!asc) todos.reverse();
-
-//   asc = !asc;
-
-//   showTodos(todos);
-// }
+}

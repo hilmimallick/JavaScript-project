@@ -40,7 +40,7 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown">
+                  <select class="dropdown" onchange="typeSort(event)">
                     <option value="all">Select option</option>
                     <option value="links">links</option>
                     <option value="Parklands">Parkland</option>
@@ -67,14 +67,14 @@
                 <td>
                   <select class="dropdown">
                     <option value="">Select option</option>
-                    <option value="">South Africa</option>
-                    <option value="">United States</option>
-                    <option value="">Northern Ireland</option>
-                    <option value="">Australia</option>
-                    <option value="">New Zealand</option>
-                    <option value="">Hawaii</option>
-                    <option value="">Saudi Arabia</option>
-                    <option value="">England</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="United States">United States</option>
+                    <option value="Northern Ireland">Northern Ireland</option>
+                    <option value="Australia">Australia</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="England">England</option>
                   </select>
                 </td>
               </tr>
@@ -88,10 +88,18 @@
               </tr>
               <tr>
                 <td>
-                  <select class="dropdown">
-                    <option value="">Select option</option>
-                    <option value="">Size Ascending</option>
-                    <option value="">Size Decending</option>
+                  <select class="dropdown" id="size" onchange="filter(event)">
+                    <option selected>Select option</option>
+                    <option value=" 36 hectares">36 hectares</option>
+                    <option value="40 hectares">40 hectares</option>
+                    <option value="42 hectares">42 hectares</option>
+                    <option value="49 hectares">49 hectares</option>
+                    <option value="53 hectures">53 hectures</option>
+                    <option value="56 hectares">56 hectares</option>
+                    <option value="62 hectares">62 hectares</option>
+                    <option value="64 hectares">64 hectares</option>
+                    <option value="70 hectares">70 hectares</option>
+                    <option value="76 hectares">76 hectares</option>
                   </select>
                 </td>
               </tr>
@@ -106,9 +114,9 @@
               <tr>
                 <td>
                   <select class="dropdown" onchange="priceSort(event)">
-                    <option value="">Select option</option>
-                    <option value="">Price Ascending</option>
-                    <option value="">Price Decending</option>
+                    <option value="all">Select option</option>
+                    <option value="acs">Price Ascending</option>
+                    <option value="desc">Price Decending</option>
                   </select>
                 </td>
               </tr>
