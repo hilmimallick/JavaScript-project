@@ -91,9 +91,9 @@ footer {
 
 a{
  font-size: 3rem;
- color: white;
+ color: black;
 }
 
 a:hover{
-  color: white;
+  color: black;
 }
