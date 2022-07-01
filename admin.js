@@ -7,7 +7,7 @@ let courseList = JSON.parse(localStorage.getItem("courseList"))
         title: "Atlantic Beach Links",
         type: "links",
         location: "South Africa",
-        size: " 36 hectares",
+        size: "36 hectares",
         price: "$ 25.6 million",
         id: "1",
       },
@@ -155,4 +155,125 @@ function deleteTask(id) {
   courseList = courseList.filter((track) => track.id !== id);
   localStorage.setItem("courseList", JSON.stringify(courseList));
   showCourses(courseList);
+}
+
+//Filtersize
+function filtersize(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#tableItems").innerHTML = "";
+    let specificView = courseList.filter(
+      (track) => track.size === FilterOption
+    );
+    specificView.forEach((track) => {
+      document.querySelector("#tableItems").innerHTML += `
+      <tr>
+      <th scope="row">${track.id}</th>
+      <td>${track.image}</td>
+      <td>${track.title}</td>
+      <td>${track.type}</td>
+      <td>${track.location}</td>
+      <td>${track.size}</td>
+      <td>${track.price}</td>
+      <td><i class="fa-solid fa-pen-to-square p-3"></i>
+      <i onclick="deleteTask(${track.id})" class="fa-solid fa-trash-can p-3"></i></td> 
+    </tr>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+//Filterlocation
+function filterlocation(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#tableItems").innerHTML = "";
+    let specificView = courseList.filter(
+      (track) => track.location === FilterOption
+    );
+    specificView.forEach((track) => {
+      document.querySelector("#tableItems").innerHTML += `
+      <tr>
+      <th scope="row">${track.id}</th>
+      <td>${track.image}</td>
+      <td>${track.title}</td>
+      <td>${track.type}</td>
+      <td>${track.location}</td>
+      <td>${track.size}</td>
+      <td>${track.price}</td>
+      <td><i class="fa-solid fa-pen-to-square p-3"></i>
+      <i onclick="deleteTask(${track.id})" class="fa-solid fa-trash-can p-3"></i></td> 
+    </tr>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+
+//Filtertype
+function filtertype(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#tableItems").innerHTML = "";
+    let specificView = courseList.filter(
+      (track) => track.type === FilterOption
+    );
+    specificView.forEach((track) => {
+      document.querySelector("#tableItems").innerHTML += `
+      <tr>
+      <th scope="row">${track.id}</th>
+      <td>${track.image}</td>
+      <td>${track.title}</td>
+      <td>${track.type}</td>
+      <td>${track.location}</td>
+      <td>${track.size}</td>
+      <td>${track.price}</td>
+      <td><i class="fa-solid fa-pen-to-square p-3"></i>
+      <i onclick="deleteTask(${track.id})" class="fa-solid fa-trash-can p-3"></i></td> 
+    </tr>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
+//Filterprice
+function filterprice(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#tableItems").innerHTML = "";
+    let specificView = courseList.filter(
+      (track) => track.price === FilterOption
+    );
+    specificView.forEach((track) => {
+      document.querySelector("#tableItems").innerHTML += `
+      <tr>
+      <th scope="row">${track.id}</th>
+      <td>${track.image}</td>
+      <td>${track.title}</td>
+      <td>${track.type}</td>
+      <td>${track.location}</td>
+      <td>${track.size}</td>
+      <td>${track.price}</td>
+      <td><i class="fa-solid fa-pen-to-square p-3"></i>
+      <i onclick="deleteTask(${track.id})" class="fa-solid fa-trash-can p-3"></i></td> 
+    </tr>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
 }

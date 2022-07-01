@@ -102,6 +102,110 @@
       </div>
     </div>
 
+    <div class="homecard">
+      <div class="card1 w-75 text-dark">
+        <div class="card-body row">
+          <div class="col-md-3">
+            <table>
+              <tr>
+                <th>Type of Course</th>
+              </tr>
+              <tr>
+                <td>
+                  <select class="dropdown" onchange="filtertype(event)">
+                    <option selected>Select option</option>
+                    <option value="links">links</option>
+                    <option value="Parkland">Parkland</option>
+                    <option value="Desert">Desert</option>
+                    <option value="Championship">Championship</option>
+                    <option value="Private">Private</option>
+                    <option value="Heathland">Heathland</option>
+                    <option value="Estate">Estate</option>
+                    <option value="Municipal">Municipal</option>
+                    <option value="Ocean">Ocean</option>
+                    <option value="Executive">Executive</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="col-md-3">
+            <table>
+              <tr>
+                <th>Location</th>
+              </tr>
+              <tr>
+                <td>
+                  <select class="dropdown" id="location" onchange="filterlocation(event)" >
+                    <option selected>Select option</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="United States">United States</option>
+                    <option value="Northern Ireland">Northern Ireland</option>
+                    <option value="Australia">Australia</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="England">England</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="col-md-3">
+            <table>
+              <tr>
+                <th>Area Size</th>
+              </tr>
+              <tr>
+                <td>
+                  <select class="dropdown" id="size" onchange="filtersize(event)">
+                    <option selected>Select option</option>
+                    <option value="36 hectares">36 hectares</option>
+                    <option value="40 hectares">40 hectares</option>
+                    <option value="42 hectares">42 hectares</option>
+                    <option value="49 hectares">49 hectares</option>
+                    <option value="53 hectures">53 hectures</option>
+                    <option value="56 hectares">56 hectares</option>
+                    <option value="62 hectares">62 hectares</option>
+                    <option value="64 hectares">64 hectares</option>
+                    <option value="70 hectares">70 hectares</option>
+                    <option value="76 hectares">76 hectares</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="col-md-3">
+            <table>
+              <tr>
+                <th>Pricing</th>
+              </tr>
+              <tr>
+                <td>
+                  <select class="dropdown" onchange="filterprice(event)">
+                    <option selected>Select option</option>
+                    <option value="$ 23.1 million">$ 23.1 million</option>
+                    <option value="$ 25.6 million">$ 25.6 million</option>
+                    <option value="$ 27.3 million">$ 27.3 million</option>
+                    <option value="$ 29 million">$ 29 million</option>
+                    <option value="$ 30 million">$ 30 million</option>
+                    <option value="$ 31.4 million">$ 31.4 million</option>
+                    <option value="$ 36.3 million">$ 36.3 million</option>
+                    <option value="$ 39 million">$ 39 million</option>
+                    <option value="$ 40 million">$ 40 million</option>
+                    <option value="$ 43.5 million">$ 43.5 million</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <table class="table caption-top">
       <caption>
         List of courses
